@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.swpu.monitor.mapper.Dht22Mapper">
+    <select id="getNewDht22" resultType="com.swpu.monitor.entity.Dht22">
+        select in_time as inTime ,temperature , humidity from dht22 order by id desc limit 1
+    </select>
+
+    <insert id="addDht22Data">
+        insert into dht22(in_time, temperature, humidity) values(#{inTime},#{temperature},#{humidity})
+    </insert>
+</mapper>
